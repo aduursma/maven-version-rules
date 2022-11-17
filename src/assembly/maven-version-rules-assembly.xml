@@ -1,0 +1,16 @@
+<assembly>
+    <id>maven-version-rules</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/src/rules</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>maven-version-rules.xml</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

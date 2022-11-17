@@ -1,0 +1,14 @@
+.apt_generated/
+.idea
+.project
+.settings/
+.classpath
+.factorypath
+*.iml
+bin/
+target/
+artifact/
+local/
+*.log*
+release.pom
+src/main/resources/announcement

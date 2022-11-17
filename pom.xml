@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nl.agility.maven</groupId>
+    <artifactId>maven-version-rules</artifactId>
+    <version>1.0.0-${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>Agility IT Services - Maven VERSION Rules</name>
+    <description>The Agility IT Services' version rules used for displaying outdated dependencies and plugins and updating them.</description>
+
+    <properties>
+        <revision>SNAPSHOT</revision>
+
+        <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+                <executions>
+					<execution>
+                        <id>create-maven-version-rules-jar</id>
+                        <phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${project.basedir}/src/assembly/maven-version-rules-assembly.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github-${project.artifactId}</id>
+            <name>GitHub ${project.artifactId} Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/aduursma/${project.artifactId}</url>
+        </repository>
+    </distributionManagement>
+</project>
